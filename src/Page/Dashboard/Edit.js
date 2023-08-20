@@ -36,7 +36,7 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
       icon: 'success',
       title: 'Successfully Edited',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1000
     })
 
     employees.splice(selectedEmployee[0].id, 1, newEmployee);
