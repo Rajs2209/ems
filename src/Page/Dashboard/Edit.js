@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
 
   const [firstName, setFirstName] = useState(selectedEmployee[0].firstName);
@@ -8,7 +9,7 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
   const [salary, setSalary] = useState(selectedEmployee[0].salary);
   const [date, setDate] = useState(selectedEmployee[0].date);
 
-  const handleEdit = (event) => {
+  const handleEdit = async (event) => {
     event.preventDefault();
 
     if (!firstName || !lastName || !email || !salary || !date) {
@@ -21,8 +22,9 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
       })
       return;
     }
-
+    console.log(selectedEmployee);
     const newEmployee = {
+      _id: selectedEmployee[0]._id,
       id: selectedEmployee[0].id,
       firstName: firstName,
       lastName: lastName,
@@ -30,19 +32,29 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
       salary: salary,
       date: date
     }
+    const res = await axios.post("http://localhost:5000/updateemployee", newEmployee);
+    console.log(res);
+    if (res.data.message == "success") {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Successfully Edited',
+        showConfirmButton: false,
+        timer: 1000
+      })
 
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Successfully Edited',
-      showConfirmButton: false,
-      timer: 1000
-    })
+      setIsEditing(false);
+    }
+    else {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Failed',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
 
-    employees.splice(selectedEmployee[0].id, 1, newEmployee);
-    setEmployee(employees);
-
-    setIsEditing(false);
   }
   return (
     <div className="d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>

@@ -15,7 +15,7 @@ function List({ employees, handleEdit, handleDelete }) {
         </thead>{" "}
         <tbody>
           {employees.length > 0 ? (
-            employees.map(({ id, firstName, lastName, email, salary, date }, index) => {
+            employees.map(({ _id, id, firstName, lastName, email, salary, date }, index) => {
               return (
                 <tr class={index % 2 == 0 ? '' : 'table-primary'}>
                   <td> {index + 1}</td> <td> {firstName} </td>
@@ -36,7 +36,7 @@ function List({ employees, handleEdit, handleDelete }) {
                     {" "}
                     <button class="btn btn-danger"
                       onClick={() => {
-                        handleDelete(id);
+                        handleDelete(_id);
                       }}
                     >
                       {" "}

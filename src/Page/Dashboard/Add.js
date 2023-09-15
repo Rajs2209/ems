@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 function Add({ employees, setEmployee, setIsAdding }) {
 
     const [firstName, setFirstName] = useState();
@@ -9,7 +10,7 @@ function Add({ employees, setEmployee, setIsAdding }) {
     const [date, setDate] = useState();
 
 
-    const handleAdd = (event) => {
+    const handleAdd = async (event) => {
         event.preventDefault();
 
         if (!firstName || !lastName || !email || !salary || !date) {
@@ -31,19 +32,29 @@ function Add({ employees, setEmployee, setIsAdding }) {
             date: date
         }
 
-        let temp = [];
-        temp = [...employees, newEmployee];
-        setEmployee(temp);
+        const res = await axios.post("http://localhost:5000/addemployee", newEmployee);
+        console.log(res);
+        if (res.data.message == "success") {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Employee Successfully Added!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setIsAdding(false);
+        }
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Failed',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
 
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Employee Successfully Added!',
-            showConfirmButton: false,
-            timer: 1500
-        })
 
-        setIsAdding(false);
     }
     return (
         <div className="d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>
