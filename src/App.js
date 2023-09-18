@@ -3,18 +3,21 @@ import "./App.css";
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from "./Page/Dashboard/index";
 import Signup from "./Page/Signup";
-import Login from "./Page/Signup/Login"
+import Login from "./Page/Login";
+import React, { useState } from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/signup" element={<Signup />} />
 
-      </Routes>
-    </div>
+  const [loggedin, setLoggedin] = useState(false);
+  return (
+
+    <Routes>
+      <Route path="/" element={<Login setLoggedin={setLoggedin} />} />
+      {localStorage.getItem('isloggedin') && <Route path="/dashboard" element={<Dashboard setLoggedin={setLoggedin} />} />}
+
+      <Route path="/signup" element={<Signup />} />
+
+    </Routes>
   );
 }
 

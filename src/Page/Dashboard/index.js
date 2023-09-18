@@ -7,7 +7,7 @@ import Add from "./Add";
 import List from "./List";
 import axios from "axios";
 
-function Dashboard() {
+function Dashboard({ setLoggedin }) {
   const [employees, setEmployee] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -63,7 +63,7 @@ function Dashboard() {
     <div>
       {!isAdding && !isEditing && (
         <>
-          <Header setIsAdding={setIsAdding} />{" "}
+          <Header setIsAdding={setIsAdding} setLoggedin={setLoggedin} />
           <List
             employees={employees}
             handleEdit={handleEdit}

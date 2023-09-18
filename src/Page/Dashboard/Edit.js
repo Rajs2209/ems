@@ -35,14 +35,6 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
     const res = await axios.post("http://localhost:5000/updateemployee", newEmployee);
     console.log(res);
     if (res.data.message == "success") {
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Successfully Edited',
-        showConfirmButton: false,
-        timer: 1000
-      })
-
       setIsEditing(false);
     }
     else {
