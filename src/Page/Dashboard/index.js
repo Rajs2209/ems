@@ -9,15 +9,30 @@ import axios from "axios";
 
 function Dashboard({ setLoggedin }) {
   const [employees, setEmployee] = useState([]);
+  const [filteredEmployee, setFilteredEmployee] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+
+  const [userInput, setUserInput] = new useState();
+  const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isadmin'));
+  const filteredEmployees = () => {
+    if (userInput == "") {
+      setFilteredEmployee(employees);
+      return;
+    }
+    let temp = [];
+    temp = employees.filter((e) => { return (e.firstName.includes(userInput)) || e.lastName.includes(userInput) || e.email.includes(userInput) || e.salary == userInput || e.date == userInput })
+    setFilteredEmployee(temp)
+  }
+
   const getEmployee = async () => {
     try {
       const res = await axios.get("http://localhost:5000/getemployee");
       // console.log(res);
       setEmployee(res.data);
+      setFilteredEmployee(res.data);
     }
     catch (err) {
       console.log(err)
@@ -26,6 +41,11 @@ function Dashboard({ setLoggedin }) {
   useEffect(() => {
     getEmployee();
   }, [isAdding, isDeleted, isEditing])
+
+  useEffect(() => {
+    filteredEmployees()
+  }, [userInput])
+
   const handleEdit = (id) => {
     const currEmployee = employees.filter((curr, index) => { return curr.id == id })
     setSelectedEmployee(currEmployee);
@@ -63,11 +83,19 @@ function Dashboard({ setLoggedin }) {
     <div>
       {!isAdding && !isEditing && (
         <>
-          <Header setIsAdding={setIsAdding} setLoggedin={setLoggedin} />
+          <Header
+            employees={filteredEmployee}
+            setIsAdding={setIsAdding}
+            setLoggedin={setLoggedin}
+            userInput={userInput}
+            setUserInput={setUserInput}
+            isAdmin={isAdmin}
+          />
           <List
-            employees={employees}
+            employees={filteredEmployee}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
+            isAdmin={isAdmin}
           ></List>
         </>
       )}

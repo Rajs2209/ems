@@ -39,6 +39,7 @@ const Login = ({ setLoggedin }) => {
                 })
                 console.log(res.data.userdata)
                 localStorage.setItem('username', res.data.userdata.username);
+                localStorage.setItem('isadmin', res.data.userdata.isadmin);
                 localStorage.setItem('isloggedin', true)
                 setLoggedin(true);
                 navigate('/dashboard');
