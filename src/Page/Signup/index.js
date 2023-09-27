@@ -78,7 +78,7 @@ const Signup = () => {
                 <img style={{ width: '40%', height: '40vh', objectFit: 'cover' }} src="https://www.clipartmax.com/png/middle/414-4147696_favicon-ico-news-favicon.png" />
             </div>
             <div className='' style={{ width: '50%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '70vh', width: '80%' }}>
+                <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '85vh', width: '80%' }}>
                     <h4 className='my-4 font-weight-bold'>Signup</h4>
                     <input className='my-2 p-2 w-75' placeholder='Enter Your Username' id='username' type='username' name="username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
                     <input className='my-2 p-2 w-75' placeholder='Enter Your Phone No' id='phone' type='phone' name="phone" value={phone} onChange={(event) => { setPhone(event.target.value) }}></input>
