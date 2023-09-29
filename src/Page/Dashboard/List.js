@@ -3,14 +3,14 @@ import React from "react";
 function List({ employees, handleEdit, handleDelete, isAdmin }) {
   return (
 
-    <div class="px-md-5" style={{ width: '100%', overflow: 'scroll' }}>
-      <table class="table my-3">
-        <thead>
+    <div class="container table-responsive py-5">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
           <tr class="table-danger">
 
-            <th> Index </th> <th> Firstname </th> <th> Lastname </th>
-            <th> Email </th> <th> Salary </th> <th> Date </th>
-            {isAdmin == "true" ? <th colSpan={2}> Action </th> : null}
+            <th scope="col"> Index </th> <th scope="col"> Firstname </th> <th scope="col"> Lastname </th>
+            <th scope="col"> Email </th> <th scope="col"> Salary </th> <th scope="col"> Date </th>
+            {isAdmin == "true" ? <th scope="col" colSpan={2}> Action </th> : null}
           </tr>
         </thead>
         <tbody>
