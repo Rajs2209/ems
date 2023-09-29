@@ -32,7 +32,7 @@ const Signup = () => {
                 password: password,
                 isadmin: isadmin
             };
-            const res = await axios.post("http://localhost:5000/register", data);
+            const res = await axios.post("https://emsbackend.vercel.app/register", data);
             console.log(res);
             if (res.status == 200) {
                 Swal.fire({

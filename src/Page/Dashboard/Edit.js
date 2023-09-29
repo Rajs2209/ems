@@ -32,7 +32,7 @@ function Edit({ employees, setEmployee, setIsEditing, selectedEmployee }) {
       salary: salary,
       date: date
     }
-    const res = await axios.post("http://localhost:5000/updateemployee", newEmployee);
+    const res = await axios.post("https://emsbackend.vercel.app/updateemployee", newEmployee);
     console.log(res);
     if (res.data.message == "success") {
       setIsEditing(false);

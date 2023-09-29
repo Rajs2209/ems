@@ -33,7 +33,7 @@ function Add({ employees, setEmployee, setIsAdding }) {
             date: date
         }
 
-        const res = await axios.post("http://localhost:5000/addemployee", newEmployee);
+        const res = await axios.post("https://emsbackend.vercel.app/addemployee", newEmployee);
         console.log(res);
         if (res.data.message == "success") {
             Swal.fire({

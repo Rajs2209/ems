@@ -29,7 +29,7 @@ function Dashboard({ setLoggedin }) {
 
   const getEmployee = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/getemployee");
+      const res = await axios.get("https://emsbackend.vercel.app/getemployee");
       // console.log(res);
       setEmployee(res.data);
       setFilteredEmployee(res.data);
@@ -55,7 +55,7 @@ function Dashboard({ setLoggedin }) {
 
   const handleDelete = async (_id) => {
 
-    const res = await axios.post("http://localhost:5000/deleteemployee", { id: _id })
+    const res = await axios.post("https://emsbackend.vercel.app/deleteemployee", { id: _id })
     if (res.data.message == "success") {
       Swal.fire({
         position: 'center',
