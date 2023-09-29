@@ -23,7 +23,7 @@ function Dashboard({ setLoggedin }) {
       return;
     }
     let temp = [];
-    temp = employees.filter((e) => { return (e.firstName.includes(userInput)) || e.lastName.includes(userInput) || e.email.includes(userInput) || e.salary == userInput || e.date == userInput })
+    temp = employees.filter((e) => { return (e.firstName.toLowerCase().includes(userInput.toLowerCase())) || e.lastName.toLowerCase().includes(userInput.toLowerCase()) || e.email.toLowerCase().includes(userInput.toLowerCase()) || e.salary == userInput || e.date == userInput })
     setFilteredEmployee(temp)
   }
 

@@ -74,10 +74,10 @@ const Signup = () => {
     return (
 
         <div style={{ height: '500px !important', display: 'flex' }}>
-            <div className='bg-primary bg-gradient' style={{ width: '50%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img style={{ width: '40%', height: '40vh', objectFit: 'cover' }} src="https://www.clipartmax.com/png/middle/414-4147696_favicon-ico-news-favicon.png" />
+            <div className='bg-primary bg-gradient d-none d-md-flex' style={{ width: '80%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="./EMS_logo_PNG3.png" />
             </div>
-            <div className='' style={{ width: '50%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className='w-100' style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '85vh', width: '80%' }}>
                     <h4 className='my-4 font-weight-bold'>Signup</h4>
                     <input className='my-2 p-2 w-75' placeholder='Enter Your Username' id='username' type='username' name="username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>

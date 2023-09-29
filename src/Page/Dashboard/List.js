@@ -3,8 +3,8 @@ import React from "react";
 function List({ employees, handleEdit, handleDelete, isAdmin }) {
   return (
 
-    <div class="container table-responsive py-5">
-      <table class="table table-bordered table-hover">
+    <div class="px-2 px-md-3 table-responsive py-2">
+      <table class="table table-bordered table-hover text-center">
         <thead class="thead-dark">
           <tr class="table-danger">
 
@@ -19,7 +19,7 @@ function List({ employees, handleEdit, handleDelete, isAdmin }) {
               return (
                 <tr class={index % 2 == 0 ? '' : 'table-primary'}>
                   <td> {index + 1}</td> <td> {firstName} </td>
-                  <td> {lastName} </td> <td> {email} </td> <td> {salary} </td>
+                  <td> {lastName} </td> <td> <a className="text-black" href={`mailto:${email}`}>{email}</a> </td> <td> ₹{salary} </td>
                   <td> {date} </td>
                   {isAdmin == "true" ? <td>
 

@@ -32,7 +32,57 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+body {
+  font-size: 15px !important;
+}
+
+button,
+input[type="submit"] {
+  font-size: 15px !important;
+  padding: 10px 15px !important
+}
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+table tr {
+  vertical-align: middle !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: none !important;
+  color: red !important;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 10px !important;
+  }
+
+  button,
+  input[type="submit"] {
+    font-size: 10px !important;
+    padding: 2px 10px !important;
+    margin: 0px 5px !important;
+  }
+
+  table tr {
+    padding: 0px !important;
+    margin: 0px !important;
+    vertical-align: middle !important;
+  }
+
+  table td {
+    padding: 0px !important;
+    margin: 0px !important;
   }
 }
