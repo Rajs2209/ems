@@ -20,7 +20,7 @@ function Header({ employees, setIsAdding, setLoggedin, userInput, setUserInput, 
     <div class="text-center">
       <h1 class="font-weight-bold">Employee Management System</h1>
 
-      <div className="px-5 d-flex flex-sm-column flex-md-row" style={{ display: 'flex', justifyContent: 'space-between', color: 'blue' }}>
+      <div className="px-5 d-flex flex-column flex-md-row" style={{ display: 'flex', justifyContent: 'space-between', color: 'blue' }}>
         <input className="my-sm-2" placeholder="Search" value={userInput} onChange={(e) => { setUserInput(e.target.value) }}></input>
         {isAdmin == "true" ? <button class="btn btn-primary my-sm-2" onClick={() => { setIsAdding(true) }}>Add Employee</button> : null}
         <Nav className="border border-primary my-sm-2" >
