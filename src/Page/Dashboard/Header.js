@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 function Header({ employees, setIsAdding, setLoggedin, userInput, setUserInput, isAdmin, setIsAdmin }) {
   const [user, setUser] = useState(localStorage.getItem('username'));
 
-
-
   const navigate = useNavigate();
   const navi = (e) => {
     e.preventDefault();
@@ -20,12 +18,13 @@ function Header({ employees, setIsAdding, setLoggedin, userInput, setUserInput, 
     <div class="">
       <div class="font-weight-bold bg-dark text-light py-1 mb-3 text-left px-5 d-flex justify-content-between align-items-center d-flex flex-column flex-md-row ">
         <div className="d-flex flex-column flex-md-row align-items-center">
-          <img src="/EMS_logo_PNG3.png" style={{ width: '100px', height: '8vh' }} />
+          <img src="/logoems.jpeg" style={{ width: '100px', height: '8vh' }} />
           <div>
             <input className="my-2 my-md-0 mx-3" placeholder="Search" value={userInput} onChange={(e) => { setUserInput(e.target.value) }}></input>
           </div>
         </div>
         <div>
+
           <Nav className="border border-light text-light my-2 my-md-0 rounded-2" >
             <NavDropdown className="text-light" title={user} >
               <NavDropdown.Item>

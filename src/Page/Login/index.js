@@ -77,7 +77,7 @@ const Login = ({ setLoggedin }) => {
     return (
         <div style={{ height: '500px !important', display: 'flex' }}>
             <div className='bg-primary bg-gradient d-none d-md-flex' style={{ width: '80%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="./EMS_logo_PNG3.png" />
+                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="/logoems.jpeg" />
             </div>
             <div className='w-100' style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '70vh', width: '80%' }}>
