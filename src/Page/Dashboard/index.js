@@ -7,7 +7,7 @@ import Add from "./Add";
 import List from "./List";
 import axios from "axios";
 
-function Dashboard({ setLoggedin }) {
+function Dashboard({ }) {
   const [employees, setEmployee] = useState([]);
   const [filteredEmployee, setFilteredEmployee] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
@@ -55,7 +55,7 @@ function Dashboard({ setLoggedin }) {
   }, [isAdding, isDeleted, isEditing])
 
   useEffect(() => {
-    filteredEmployees()
+    filteredEmployees();
   }, [userInput])
 
   const handleEdit = (id) => {
@@ -98,7 +98,6 @@ function Dashboard({ setLoggedin }) {
           <Header
             employees={filteredEmployee}
             setIsAdding={setIsAdding}
-            setLoggedin={setLoggedin}
             userInput={userInput}
             setUserInput={setUserInput}
             isAdmin={isAdmin}
@@ -113,7 +112,7 @@ function Dashboard({ setLoggedin }) {
           ></List>
         </>
       )}
-      {isAdding && <Add employees={employees} setEmployee={setEmployee} setIsAdding={setIsAdding}> </Add>}{" "}
+      {isAdding && <Add employees={employees} setEmployee={setEmployee} setIsAdding={setIsAdding}> </Add>}
       {isEditing && <Edit employees={employees} setEmployee={setEmployee} setIsEditing={setIsEditing} selectedEmployee={selectedEmployee}> </Edit>}
     </div>
   );

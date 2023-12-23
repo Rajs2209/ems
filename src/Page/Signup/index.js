@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from "sweetalert2";
-
 const Signup = () => {
     const [username, setUsername] = useState();
     const [phone, setPhone] = useState();
@@ -12,6 +11,10 @@ const Signup = () => {
     const [code, setCode] = useState();
     const [iscodevalid, setIscodevalid] = useState(false);
     const navigate = useNavigate();
+    const [image, setImage] = useState();
+
+
+
     const Submitdata = async (e) => {
         e.preventDefault();
         if (isadmin && code != "MYORG123") {
@@ -75,7 +78,7 @@ const Signup = () => {
 
         <div style={{ height: '500px !important', display: 'flex' }}>
             <div className='bg-primary bg-gradient d-none d-md-flex' style={{ width: '80%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="/logoems.jpeg" />
+                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="/logowwfn.png" />
             </div>
             <div className='w-100' style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '85vh', width: '80%' }}>
@@ -84,6 +87,10 @@ const Signup = () => {
                     <input className='my-2 p-2 w-75' placeholder='Enter Your Phone No' id='phone' type='phone' name="phone" value={phone} onChange={(event) => { setPhone(event.target.value) }}></input>
                     <input className='my-2 p-2 w-75' placeholder="Enter Your Email address" id='email' type='email' name="email" value={email} onChange={(event) => { setEmail(event.target.value) }}></input>
                     <input className='my-2 p-2 w-75' placeholder='Enter Your Password' id='password' type='password' name="password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+                    {/* <div className="App">
+                        <input className='my-2 p-2 w-75' type="file" onChange={(e) => { setImage(e.target.files[0]); console.log(e.target.files[0]) }} />
+                        <button onClick={uploadimage}>Upload</button>
+                    </div> */}
                     <div>
                         <label>Sign up as Admin?</label><input className='mx-2' type="checkbox" checked={isadmin} onChange={(event) => { setIsadmin(event.target.checked) }}></input>
                     </div>

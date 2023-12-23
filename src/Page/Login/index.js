@@ -4,7 +4,7 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 
 
-const Login = ({ setLoggedin }) => {
+const Login = ({ }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
@@ -41,7 +41,6 @@ const Login = ({ setLoggedin }) => {
                 localStorage.setItem('username', res.data.userdata.username);
                 localStorage.setItem('isadmin', res.data.userdata.isadmin);
                 localStorage.setItem('isloggedin', true)
-                setLoggedin(true);
                 navigate('/dashboard');
             }
 
@@ -77,7 +76,7 @@ const Login = ({ setLoggedin }) => {
     return (
         <div style={{ height: '500px !important', display: 'flex' }}>
             <div className='bg-primary bg-gradient d-none d-md-flex' style={{ width: '80%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="/logoems.jpeg" />
+                <img style={{ width: '50%', height: '40vh', objectFit: '' }} src="/logowwfn.png" />
             </div>
             <div className='w-100' style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className='border border-2 rounded ' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '70vh', width: '80%' }}>
